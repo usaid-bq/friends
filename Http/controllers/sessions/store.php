@@ -14,6 +14,7 @@ $form = new LoginForm();
 if (! $form->validate($email, $password)){
     /* $_SESSION['_flash']['errors'] = $form->errors(); */
     Session::flash('errors', $form->errors());
+    Session::flash('old', $_POST['email']);
     redirect("/login");
 }
 
@@ -26,6 +27,7 @@ if ($auth->attempt($email, $password)){
 } else {
     /* $_SESSION['_flash']['errors'] = $auth->errors(); */
     Session::flash('errors', $auth->errors());
+    Session::flash('old', $_POST['email']);
     redirect("/login");
 }
     
