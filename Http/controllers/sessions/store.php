@@ -1,6 +1,7 @@
 <?php
 
 use Core\Authenticator;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 $password = $_POST['password'];
@@ -11,7 +12,8 @@ $email = $_POST['email'];
 $form = new LoginForm();
 
 if (! $form->validate($email, $password)){
-    $_SESSION['_flash']['errors'] = $form->errors();
+    /* $_SESSION['_flash']['errors'] = $form->errors(); */
+    Session::flash('errors', $form->errors());
     redirect("/login");
 }
 
@@ -22,7 +24,8 @@ $auth = new Authenticator();
 if ($auth->attempt($email, $password)){
     redirect("/home");
 } else {
-    $_SESSION['_flash']['errors'] = $auth->errors();
+    /* $_SESSION['_flash']['errors'] = $auth->errors(); */
+    Session::flash('errors', $auth->errors());
     redirect("/login");
 }
     
