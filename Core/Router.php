@@ -84,4 +84,8 @@ class Router {
         die();
     }
 
+    public function previousURL(){
+        return $_SERVER['HTTP_REFERER'];
+    }
+
 }
