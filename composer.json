@@ -1,0 +1,16 @@
+{
+    "name": "unbellanced/friends",
+    "authors": [
+        {
+            "name": "UnBellanced",
+            "email": "158803614+UnBellanced@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}

@@ -20,11 +20,9 @@ class LoginForm {
         }
     }
     public static function validate($attributes){
-
         $instance = new static($attributes);
-
         if($instance->failed()){
-            ValidationException::throw($instance->errors(), $instance->attributes);
+            ValidationException::throw($instance->errors, $instance->attributes);
         }
 
         return $instance;
